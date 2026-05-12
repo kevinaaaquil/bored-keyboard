@@ -200,44 +200,58 @@ export default function App() {
   const padDisabled = loadState === "loading" || loadState === "error";
 
   return (
-    <div className="app" style={rootStyle}>
-      <header className="app__header">
-        <h1 className="app__title">Bored Keyboard</h1>
-        <p className="app__tagline">Press 0–9. Tap keys. Switch sounds.</p>
-      </header>
+    <>
+      <div className="viewport-notice" role="status" aria-live="polite">
+        <div className="viewport-notice__inner">
+          <h1 className="viewport-notice__title">Desktop recommended</h1>
+          <p className="viewport-notice__body">
+            This website is designed to be used on a desktop-sized screen. You will get a much better experience if you open it on a desktop or laptop
+            computer.
+          </p>
+        </div>
+      </div>
 
-      <InstrumentSelector
-        instruments={instruments}
-        activeId={activeInstrumentId}
-        disabled={loadState === "loading"}
-        onSelect={onSelectInstrument}
-      />
+      <div className="viewport-app">
+        <div className="app" style={rootStyle}>
+          <header className="app__header">
+            <h1 className="app__title">Bored Keyboard</h1>
+            <p className="app__tagline">Press 0–9. Tap keys. Switch sounds.</p>
+          </header>
 
-      <KeyboardPad
-        instrument={activeInstrument ?? instruments[0]!}
-        pressed={pressed}
-        disabled={padDisabled}
-        loading={loadState === "loading"}
-        onPress={onPadPress}
-        onPressVisual={setPressed}
-      />
+          <InstrumentSelector
+            instruments={instruments}
+            activeId={activeInstrumentId}
+            disabled={loadState === "loading"}
+            onSelect={onSelectInstrument}
+          />
 
-      <VolumeControl value={volumeLinear} onChange={setVolumeLinear} disabled={!audioReady} />
+          <KeyboardPad
+            instrument={activeInstrument ?? instruments[0]!}
+            pressed={pressed}
+            disabled={padDisabled}
+            loading={loadState === "loading"}
+            onPress={onPadPress}
+            onPressVisual={setPressed}
+          />
 
-      <StatusBar
-        loadState={loadState}
-        instrumentName={activeInstrument?.name ?? ""}
-        errorMessage={loadError}
-        onRetry={onRetry}
-      />
+          <VolumeControl value={volumeLinear} onChange={setVolumeLinear} disabled={!audioReady} />
 
-      <footer className="app__footer">
-        <button type="button" className="link-button" onClick={() => setAttributionOpen(true)}>
-          Attributions & licenses
-        </button>
-      </footer>
+          <StatusBar
+            loadState={loadState}
+            instrumentName={activeInstrument?.name ?? ""}
+            errorMessage={loadError}
+            onRetry={onRetry}
+          />
 
-      {attributionOpen ? <AttributionPanel onClose={() => setAttributionOpen(false)} /> : null}
-    </div>
+          <footer className="app__footer">
+            <button type="button" className="link-button" onClick={() => setAttributionOpen(true)}>
+              Attributions & licenses
+            </button>
+          </footer>
+
+          {attributionOpen ? <AttributionPanel onClose={() => setAttributionOpen(false)} /> : null}
+        </div>
+      </div>
+    </>
   );
 }

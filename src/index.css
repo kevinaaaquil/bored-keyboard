@@ -33,6 +33,54 @@ body {
   min-height: 100%;
 }
 
+/* Below plan.md “desktop” breakpoint: show desktop-only notice instead of the app. */
+.viewport-notice {
+  display: none;
+}
+
+.viewport-app {
+  display: block;
+}
+
+.viewport-notice__inner {
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.viewport-notice__title {
+  margin: 0 0 1rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.viewport-notice__body {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 767px) {
+  .viewport-notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 2rem 1.25rem;
+    text-align: center;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .viewport-app {
+    display: none;
+  }
+}
+
 .app {
   max-width: 720px;
   margin: 0 auto;
