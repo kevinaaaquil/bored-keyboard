@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { publicAssetUrl } from "@/lib/publicUrl";
 
 type Props = {
   onClose: () => void;
@@ -9,8 +10,7 @@ export function AttributionPanel({ onClose }: Props) {
 
   useEffect(() => {
     let cancelled = false;
-    const base = import.meta.env.BASE_URL;
-    const url = `${base.endsWith("/") ? base : `${base}/`}ATTRIBUTION.md`;
+    const url = publicAssetUrl("ATTRIBUTION.md");
     void (async () => {
       try {
         const res = await fetch(url);

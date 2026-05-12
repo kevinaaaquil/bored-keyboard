@@ -1,10 +1,5 @@
 import type { DigitKey, NoteName } from "./notes";
-
-const sound = (path: string) => {
-  const base = import.meta.env.BASE_URL;
-  const normalized = base.endsWith("/") ? base : `${base}/`;
-  return `${normalized}${path.replace(/^\//, "")}`;
-};
+import { publicAssetUrl } from "@/lib/publicUrl";
 
 export type RetriggerPolicy = "layer" | "restart";
 
@@ -86,16 +81,16 @@ export const instruments: Instrument[] = [
     retrigger: "layer",
     accent: "#5EEAD4",
     samples: {
-      C4: sound("sounds/demo-keys/C4.wav"),
-      D4: sound("sounds/demo-keys/D4.wav"),
-      E4: sound("sounds/demo-keys/E4.wav"),
-      F4: sound("sounds/demo-keys/F4.wav"),
-      G4: sound("sounds/demo-keys/G4.wav"),
-      A4: sound("sounds/demo-keys/A4.wav"),
-      B4: sound("sounds/demo-keys/B4.wav"),
-      C5: sound("sounds/demo-keys/C5.wav"),
-      D5: sound("sounds/demo-keys/D5.wav"),
-      E5: sound("sounds/demo-keys/E5.wav"),
+      C4: publicAssetUrl("sounds/demo-keys/C4.wav"),
+      D4: publicAssetUrl("sounds/demo-keys/D4.wav"),
+      E4: publicAssetUrl("sounds/demo-keys/E4.wav"),
+      F4: publicAssetUrl("sounds/demo-keys/F4.wav"),
+      G4: publicAssetUrl("sounds/demo-keys/G4.wav"),
+      A4: publicAssetUrl("sounds/demo-keys/A4.wav"),
+      B4: publicAssetUrl("sounds/demo-keys/B4.wav"),
+      C5: publicAssetUrl("sounds/demo-keys/C5.wav"),
+      D5: publicAssetUrl("sounds/demo-keys/D5.wav"),
+      E5: publicAssetUrl("sounds/demo-keys/E5.wav"),
     },
     attribution: {
       source: "Generated in-repo for bored-keyboard MVP (replace with licensed recordings).",

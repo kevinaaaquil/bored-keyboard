@@ -1,3 +1,5 @@
+"use client";
+
 import type { CSSProperties } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CompositeEngine } from "./audio/CompositeEngine";
@@ -10,7 +12,6 @@ import { KeyboardPad } from "./components/KeyboardPad";
 import { StatusBar } from "./components/StatusBar";
 import { VolumeControl } from "./components/VolumeControl";
 import { AttributionPanel } from "./components/AttributionPanel";
-import "./index.css";
 
 const defaultInstrumentId = instruments[0]!.id;
 

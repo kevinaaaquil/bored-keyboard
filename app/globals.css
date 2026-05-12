@@ -24,13 +24,9 @@ body {
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
-}
-
-#root {
-  min-height: 100%;
 }
 
 /* Below plan.md “desktop” breakpoint: show desktop-only notice instead of the app. */
@@ -49,7 +45,7 @@ body {
 
 .viewport-notice__title {
   margin: 0 0 1rem;
-  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.35rem;
   letter-spacing: 0.02em;
@@ -96,7 +92,7 @@ body {
 
 .app__title {
   margin: 0;
-  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-weight: 700;
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   letter-spacing: 0.04em;
@@ -227,7 +223,7 @@ body {
 }
 
 .key__digit {
-  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 6vw, 3rem);
   line-height: 1;
